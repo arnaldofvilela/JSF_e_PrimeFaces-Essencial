@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
@@ -36,7 +37,7 @@ public class Empresa implements Serializable {
 	@Column(nullable = false, length = 18)
 	private String cnpj;
 	
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	@Column(name = "data_fundacao")
 	private Date dataFundacao;
 	
