@@ -1,7 +1,7 @@
 package com.algaworks.erp.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -97,6 +97,14 @@ public class Empresa implements Serializable {
 		this.ramoAtividade = ramoAtividade;
 	}
 
+	public TipoEmpresa getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoEmpresa tipo) {
+		this.tipo = tipo;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -118,6 +126,8 @@ public class Empresa implements Serializable {
 	public String toString() {
 		return "Empresa [id=" + id + "]";
 	}
+
+
 	
 	
 }
