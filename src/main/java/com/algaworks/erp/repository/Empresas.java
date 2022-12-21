@@ -15,7 +15,7 @@ public class Empresas implements Serializable{
 	
 	@Inject
 	private EntityManager manager;
-	
+
 	public Empresas() {
 	}
 	
@@ -28,12 +28,12 @@ public class Empresas implements Serializable{
 	}
 	
 	public List<Empresa> pesquisar(String nome){
-		String jpql = "from Empresa where nomeFantasia like :nomeFantasia";
+		String jpql = "from Empresa where razao_social like :razao_social";
 		
 		TypedQuery<Empresa> query = manager
 				.createQuery(jpql, Empresa.class);
 		
-		query.setParameter("nomeFantasia", nome + "%");
+		query.setParameter("razao_social", nome + "%");
 		
 		return query.getResultList();
 	}
