@@ -2,12 +2,15 @@ package com.algaworks.erp.controller;
 
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.faces.convert.Converter;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.primefaces.context.RequestContext;
 
 import com.algaworks.erp.model.Empresa;
 import com.algaworks.erp.model.RamoAtividade;
@@ -19,7 +22,7 @@ import com.algaworks.erp.util.FacesMessages;
 
 @Named
 @ViewScoped
-public class GestaoEmpresasBean implements Serializable{
+public class GestaoEmpresasBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -52,9 +55,14 @@ public class GestaoEmpresasBean implements Serializable{
 		
 		if(jaHouvePesquisa()) {
 			pesquisar();
+		} else {
+			todasEmpresas();
 		}
 		
-		messages.info("Empresa cadastrada com sucesso!");
+		messages.info("Empresa salva com sucesso!");
+		
+		RequestContext.getCurrentInstance().update(Arrays.asList(
+				"frm:empresasDataTable", "frm:messages"));
 	}
 	
 	public void pesquisar() {
